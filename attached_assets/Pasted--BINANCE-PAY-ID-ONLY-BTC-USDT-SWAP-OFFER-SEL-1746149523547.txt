@@ -1,0 +1,98 @@
+########################
+🚨 BINANCE PAY ID ONLY BTC-USDT SWAP OFFER 🚨
+####################
+
+🅱️ SELLER OFFER PROCEDURES – BTC ⇄ USDT SWAP (BINANCE PAY ID) 🅱️
+📅 DATE OF OFFER: 01-May-2025
+🆔 SELLER ID: GECAN-CRPT-BTC-S-TSB-X22
+⏳ VALIDITY: From 28-Apr-2025 until 05-May-2025 (Close of Business, London 7 pm)
+
+🧾 EXECUTIVE SUMMARY
+This strictly time-limited Soft Corporate Offer (SCO) outlines the sale of up to 10,000 Bitcoin (BTC) in exchange for USDT, conducted exclusively through the Binance platform using Binance Pay ID. The procedure mandates that the qualified Buyer transfers USDT first via Binance Pay ID. The Seller will then transfer the agreed BTC amount to the Buyer's Binance Pay ID. No Satoshi tests, Handshake tests, or A/B tests will be performed. Discounts are available but will only be disclosed upon presentation of a verified Buyer with a valid Binance Pay ID.
+
+📌 TRANSACTION DETAILS
+▪️ COMMODITY: Bitcoin (BTC)
+▪️ TRADING PAIR: BTC/USDT
+▪️ SWAP TYPE: Direct Sale BTC for USDT via Binance Pay ID
+▪️ ORIGIN: Seller's Binance Account
+▪️ TRANSACTION PLATFORM: BINANCE ONLY (Utilizing Binance Pay ID)
+▪️ WALLET REQUIREMENTS:
+▫️ Buyer: Must possess an active Binance account, provide their Binance Pay ID, and the associated Binance USDT Wallet Address (ERC20 or TRC20).
+▫️ Seller: Will provide their receiving Binance Pay ID.
+▪️ AVAILABLE QUANTITY: Up to 10,000 BTC
+
+💰 PRICING & TERMS
+▪️ PRICING BASIS: Market rate at time of execution within Binance (TBC).
+▪️ DISCOUNT (GROSS): To Be Disclosed (TBD) - Only revealed upon presentation of a qualified Binance Pay ID Buyer.
+▪️ DISCOUNT (NET): TBD - Dependent on Gross Discount disclosure.
+
+🚛 LOGISTICS & INCOTERMS
+▪️ INCOTERMS: BTC-USDT SWAP | BINANCE PAY ID ONLY | REMOTE | BUYER SENDS USDT FIRST
+▪️ DESTINATION: Buyer's Binance Pay ID (for BTC) / Seller's Binance Pay ID (for USDT)
+▪️ MODE: Exclusively via Binance Platform (Remote)
+▪️ TRIAL QUANTITY: Not Applicable / Direct Tranche Execution (TBD)
+▪️ CONTRACT QUANTITY: Up to 10,000 BTC (Tranche sizes TBD)
+▪️ CONTRACT DURATION: Per agreement / tranche, within offer validity period.
+
+💵 PAYMENT & SECURITY
+▪️ PAYMENT CURRENCY: USDT (Tether - ERC20 or TRC20, Buyer's choice)
+▪️ PAYMENT METHOD: Binance Pay ID Transfer ONLY (Buyer sends USDT first).
+▪️ PAYMENT GUARANTEE: Relies on Binance platform transaction mechanisms and prior agreement (e.g., simple SPA or confirmed instruction).
+▪️ PERFORMANCE BOND: Not Applicable.
+
+🤝 COMMISSIONS
+▪️ TOTAL COMMISSION: TBD (Structure and percentage not disclosed upfront).
+▪️ DISTRIBUTION: TBD (Specific Seller/Buyer/Intermediary splits not provided).
+▪️ PAYMENT TIMING: Paid after the successful completion of the swap transaction (USDT sent, BTC received).
+
+🔁 STEP-BY-STEP PROCEDURES (BINANCE PAY ID - USDT SENDS FIRST)
+▪️ Step 1: Buyer Identification & Information Submission
+▫️ Interested Buyer (must be a Binance user) provides their Binance Pay ID and associated Binance USDT Wallet Address for verification.
+▪️ Step 2: Seller Verification & Discount Disclosure
+▫️ Seller verifies the Buyer's Binance credentials.
+▫️ Upon successful verification, Seller discloses the applicable discount for the transaction. Seller provides their receiving Binance Pay ID.
+▪️ Step 3: Agreement Confirmation
+▫️ Buyer and Seller confirm the terms (Quantity, Price/Discount, Pay IDs) potentially via a simple agreement or confirmed message exchange.
+▪️ Step 4: Buyer Transfers USDT via Binance Pay ID
+▫️  BUYER SENDS FIRST: Buyer transfers the agreed USDT amount (ERC20 or TRC20) to the Seller's provided Binance Pay ID.
+▪️ Step 5: Seller Confirms USDT Receipt
+▫️ Seller confirms receipt of the USDT transfer within their Binance account.
+▪️ Step 6: Seller Transfers BTC via Binance Pay ID
+▫️ Upon USDT confirmation, Seller transfers the agreed BTC amount to the Buyer's provided Binance Pay ID.
+▪️ Step 7: Buyer Confirms BTC Receipt
+▫️ Buyer confirms receipt of the BTC transfer within their Binance account.
+▪️ Step 8: Commission Disbursement
+▫️ Following the successful swap, commissions are paid to registered brokers/intermediaries as per a prior agreement (details TBD).
+▪️ Step 9: Repeat Transaction (If Applicable)
+▫️ Steps 4 through 8 may be repeated for subsequent tranches if agreed, within the offer validity period.
+
+📎 ANNEXES
+▪️ Annexes: TBD / Likely minimal (e.g., Simple Agreement/Confirmation, Commission Agreement if formalized).
+
+⚠️ IMPORTANT TRANSACTION CONDITIONS
+▪️ BINANCE PAY ID MANDATORY: This transaction is only possible between Binance users via Binance Pay ID. No other platforms or methods will be considered.
+▪️ BUYER PAYS USDT FIRST: This is a non-negotiable procedural step.
+▪️ NO PRE-TESTS: Absolutely NO Satoshi, Handshake, or A/B tests will be conducted.
+▪️ DISCOUNT DISCLOSURE: Discount details are confidential and shared only after Buyer's Binance Pay ID is provided and verified.
+▪️ STRICT VALIDITY: Offer is valid only until 05-May-2025, 7 pm London time.
+▪️ USDT TYPE: Buyer chooses between ERC20 or TRC20 USDT for payment.
+
+📞 ADDITIONAL NOTES
+▪️ Platform Reliance: Success depends entirely on the functionality and security of the Binance platform and Pay ID system.
+▪️ Direct Buyers Preferred: Seeking Buyers who directly use and control their Binance accounts/Pay ID.
+▪️ Confidentiality: Standard discretion is expected from all parties.
+▪️ Serious Inquiries Only: Only contact if you have a direct Buyer ready and capable of transacting via Binance Pay ID under these specific conditions.
+
+📬 VALIDITY & DISCLAIMER
+▪️ This Soft Corporate Offer (SCO) is subject to final Seller confirmation, BTC availability, and Buyer meeting the strict Binance Pay ID requirements.
+▪️ Offer expires definitively on 05-May-2025 at 7 pm London time.
+▪️ Pricing/discount is indicative until formally disclosed and agreed upon.
+▪️ Allocation is on a first-come, first-served basis for qualified Binance Pay ID Buyers.
+▪️ This document outlines the transaction framework. It does not constitute a legally binding agreement until terms are formally agreed upon by both parties (e.g., via signed confirmation or simple SPA if used).
+
+########################
+🚨 FOR REFERENCE - END OF MESSAGE 🚨
+####################
+▪️▪️▪️
+▪️▪️▪️
+▪️▪️▪️

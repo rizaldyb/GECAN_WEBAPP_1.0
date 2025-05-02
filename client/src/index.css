@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  
+  /* GECAN blue as primary */
+  --primary: 218 86% 31%;
+  --primary-foreground: 0 0% 98%;
+  
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  
+  /* GECAN gold as accent */
+  --accent: 41 44% 50%;
+  --accent-foreground: 0 0% 0%;
+  
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Chart colors */
+  --chart-1: 218 86% 31%;
+  --chart-2: 41 44% 50%;
+  --chart-3: 196 75% 45%;
+  --chart-4: 162 74% 42%;
+  --chart-5: 27 87% 59%;
+  
+  /* Sidebar colors */
+  --sidebar-background: 218 86% 10%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 218 86% 31%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 41 44% 50%;
+  --sidebar-accent-foreground: 0 0% 0%;
+  --sidebar-border: 218 24% 20%;
+  --sidebar-ring: 218 86% 20%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  
+  --primary: 218 86% 40%;
+  --primary-foreground: 0 0% 98%;
+  
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  
+  --accent: 41 44% 50%;
+  --accent-foreground: 0 0% 0%;
+  
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  
+  /* Sidebar colors - dark mode */
+  --sidebar-background: 218 86% 8%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 218 86% 40%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 41 44% 50%;
+  --sidebar-accent-foreground: 0 0% 0%;
+  --sidebar-border: 218 24% 20%;
+  --sidebar-ring: 218 86% 20%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat;
+  }
+}
+
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent) / 0.8);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Table styles */
+.styled-table tbody tr:hover {
+  background-color: rgba(11, 61, 145, 0.05);
+}

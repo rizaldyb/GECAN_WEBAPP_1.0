@@ -1,0 +1,178 @@
+YOUR ROLE: You are an elite, visionary Full-Stack Systems Architect and Senior Software Engineer. You possess mastery in cloud-native web applications, multi-tenant distributed systems, secure authentication, data modeling, API design, smart contract concepts (though direct blockchain implementation is for a later phase), front-end UX/UI development (React/Next.js preferred), backend development (Node.js/Express or Python/Flask preferred), and database design (PostgreSQL or MongoDB preferred, utilizing Replit's database capabilities effectively). You understand the nuances of high-value, confidential B2B transactions in the global energy and commodities sector.
+PROJECT OBJECTIVE: Design and build, from scratch, the GECAN Super WebApp v1.0 – the official, private, ultra-exclusive web platform for the Global Energy & Commodities Alliance Network (GECAN). This platform will be the definitive digital ecosystem for pre-vetted, high-net-worth buyers, sellers, brokers, and strategic intermediaries operating in high-value commodity markets (including Gold, Petroleum, Crypto Swaps, Cash Pallets, SBLCs, etc.). The WebApp must embody prestige, security, trust, efficiency, compliance, and exclusivity, revolutionizing how elite players connect and transact.
+PLATFORM & STACK:
+Deployment Environment: Replit.com (Utilize its integrated development environment, database features, and deployment capabilities).
+Frontend: React or Next.js (preferred for component structure, performance, and scalability). Use a high-quality UI component library (e.g., Material UI, Ant Design, Chakra UI, or Tailwind CSS with Headless UI) and ensure it can be customized to achieve a unique, prestigious GECAN aesthetic.
+Backend: Node.js with Express.js OR Python with Flask/Django. Choose the one best suited for building robust APIs, handling business logic, and integrating with the database. Prioritize clear API design (RESTful or GraphQL).
+Database: CRITICAL: Use a scalable database suitable for Replit (e.g., Replit DB for initial phases/simpler data, PostgreSQL via Replit Bounties/Deployments integration strongly recommended for relational integrity and scaling, or MongoDB if a NoSQL approach is preferred). DO NOT USE GOOGLE SHEETS AS THE LIVE APPLICATION DATABASE. Google Sheets (GECAN_Seller_Offers_DB) serves only as the conceptual model for data structures and attributes.
+State Management (Frontend): Context API, Redux Toolkit, Zustand, or similar robust solution.
+Authentication: Implement secure user authentication (e.g., JWT, session management). Consider integration with secure third-party providers if appropriate for future phases, but start with robust email/password and GECAN Admin approval workflow.
+CORE CONCEPTS & PHILOSOPHY:
+Exclusivity & Trust: GECAN is private. All users (Buyers, Sellers, Intermediaries) must undergo a rigorous vetting process managed by GECAN Admins before gaining full access.
+Prestige & Aesthetics: The UI/UX must be exceptionally clean, modern, intuitive, and professional, reflecting the high-value nature of the transactions and the elite status of members. Avoid generic templates. Think bespoke, data-rich interfaces with clear calls to action. Use the GECAN color palette (Primary Blue: #0B3D91, Accent Gold: #B48F4C, Neutrals: Grays/Whites) effectively.
+Efficiency & Workflow: Streamline the process of submitting offers/enquiries, managing due diligence, finding matches, and accessing tools.
+Compliance & Security: Build with security best practices from the ground up. Data privacy and confidentiality are paramount. Include necessary legal disclaimers.
+Modularity & Scalability: Architect the application in distinct components/services (e.g., Auth Service, Offer Service, Enquiry Service, User Service, Matching Service - conceptual separation initially) to facilitate future expansion (Smart Contracts, advanced analytics, more commodity types, etc.).
+DATA MODEL (Conceptual Basis: GECAN_Seller_Offers_DB Google Sheet Structure):
+Design the database schema based on the following entities. The attributes for Offers/Enquiries should mirror the columns defined in the corresponding Google Sheet tabs (01_Gold_Sellers, 02_BTC_Sellers, etc.).
+Users:
+userId (Primary Key, e.g., UUID)
+email (Unique, Login)
+passwordHash
+firstName, lastName
+companyName
+role ('GECAN_Admin', 'Vetted_Member', 'Pending_Verification', 'Rejected')
+gecanMemberId (Unique ID assigned after vetting, e.g., GECAN-U-XXXXXX)
+status ('Pending', 'Active', 'Suspended', 'Archived')
+verificationLevel (e.g., L0-L4, linking to DD process)
+memberType ('Buyer', 'Seller', 'Broker', 'Intermediary', 'Strategic_Partner', 'Multiple') - Allow multiple roles.
+createdAt, updatedAt, lastLogin
+profileData (JSONB/Text for storing application/DD info links/summary)
+twoFactorSecret (Optional, for 2FA)
+SellerOffers:
+offerId (Primary Key, e.g., GOLD-YYYYMMDD-HHMMSS-XXX - System Generated)
+sellerUserId (Foreign Key to Users table, representing the vetted GECAN seller)
+offerType ('GOLD', 'BTC', 'USDT', 'PALLET', 'PETRO', 'SBLCM', 'SBLCP') - Index this heavily.
+status ('Pending Approval', 'Active', 'Inactive', 'Expired', 'Archived', 'Matched', 'Transaction Complete', 'High Demand') - Index this.
+createdAt, updatedAt, expiryDate
+gecanAdminApproverId (Foreign Key to Users - Admin who approved)
+internalNotes (Text, GECAN Admin only)
+Commodity-Specific Attributes: ALL relevant columns from the corresponding Google Sheet tab (e.g., for GOLD: GoldType, Purity, Quantity, QuantityUnit, Location_CityCountry, IncoTerm, PriceBasis, DiscountPremium_Gross, DiscountPremium_Net, PaymentTerms, ProcedureSummary, etc.). Use appropriate data types (Number, Text, Date, JSONB for complex procedures/terms).
+BuyerEnquiries:
+enquiryId (Primary Key, e.g., ENQ-YYYYMMDD-HHMMSS-XXX)
+buyerUserId (Foreign Key to Users table)
+enquiryType ('GOLD', 'BTC', 'USDT', 'PALLET', 'PETRO', 'SBLC_MONETIZE_NEED', 'SBLC_PROVIDER_NEED') - Match Offer Types.
+status ('Draft', 'Submitted', 'Pending Review', 'Active', 'Matched', 'Expired', 'Archived')
+createdAt, updatedAt
+Commodity-Specific Requirements: Fields detailing the buyer's needs (e.g., for GOLD: Desired Quantity, Purity, IncoTerm, TargetPriceBasis, TargetDiscountNet, RequiredLocation, PaymentMethodAvailable, etc.). Structure these similarly to the Seller Offer attributes but from the buyer's perspective.
+DueDiligenceRecords:
+ddRecordId (PK)
+userId (FK to Users being vetted)
+status ('Pending', 'Info Requested', 'Under Review', 'Approved', 'Rejected', 'Re-Verification Needed')
+assignedAdminId (FK to Users - Admin)
+checklistItems (JSONB/Text storing checklist status)
+uploadedDocuments (JSONB/Text storing links/references to secure document storage - DO NOT STORE DOCS DIRECTLY IN DB)
+notes (Text)
+approvedAt, rejectedAt
+Matches: (For connecting specific offers/enquiries after GECAN facilitation)
+matchId (PK)
+offerId (FK)
+enquiryId (FK)
+status ('Introduced', 'Negotiating', 'Contracted', 'Completed', 'Cancelled')
+facilitatingAdminId (FK to Users - Admin)
+createdAt
+Documents: (Metadata for templates/generated contracts)
+docId (PK)
+docType ('NCNDA', 'IMFPA', 'SPA', 'LOI', 'ICPO', 'SCO', 'FCO', 'DOA', 'MOU', 'KYC_Form', etc.)
+templateName (e.g., SPA_Gold_Bullion_CIF_v1.8)
+templateContent (Text/JSONB - Store the template structure/text) - OR store templates as files and reference paths.
+version
+commodityTypeScope (Array: ['GOLD', 'PETRO', 'ALL'], etc.)
+AuditLog:
+logId (PK)
+userId (FK - User performing action)
+actionType ('LOGIN', 'CREATE_OFFER', 'UPDATE_STATUS', 'VIEW_MATCH', 'DOWNLOAD_DOC', etc.)
+targetEntity, targetId (e.g., 'Offer', 'GOLD-...')
+timestamp
+details (JSONB/Text)
+USER ROLES & PERMISSIONS:
+GECAN Admin: Full CRUD access on all data. Manages users, vetting, approvals, platform settings, can view all offers/enquiries/matches. Accesses internal dashboards.
+Vetted Member (Buyer/Seller/Broker etc.):
+Can submit their specific Offers (if Seller) or Enquiries (if Buyer).
+Can view/manage their own submissions.
+Can search/view anonymized or summarized details of Active, matching Offers/Enquiries (details revealed upon GECAN-facilitated introduction).
+Can access relevant Toolkits, Community Hub, Knowledge Base.
+Access level potentially tiered based on verificationLevel or performance history (future).
+Pending Verification User: Limited access. Can complete profile/application, upload DD documents. Cannot submit offers/enquiries or view market data until approved by Admin.
+Public/Unauthenticated: Access only to a potential landing page (if desired) and login/registration prompts.
+CORE FEATURE BREAKDOWN:
+Authentication & Onboarding:
+Secure user registration requiring initial details (email, name, company).
+Email verification step.
+Login with secure password handling (hashing, salting).
+Post-login: Users land in 'Pending Verification' status. They are prompted to complete a detailed profile/application form (mirroring KYC/CDD requirements from 00_TEMPLATES/01_Legal_Compliance_Templates/KYC_CDD/).
+Interface for uploading necessary DD documents (securely handled, links stored in DueDiligenceRecords).
+GECAN Admin Vetting Workflow:
+Admin dashboard showing 'Pending Verification' users.
+Interface to review submitted profiles and documents.
+Ability to request more information from the user.
+Internal checklist tracking (DueDiligenceRecords).
+Functionality to 'Approve' (sets User role to 'Vetted_Member', assigns gecanMemberId, sets verificationLevel) or 'Reject' user applications.
+Seller Offer Management:
+Submission: Vetted Sellers access a dedicated "Create New Offer" section. A dynamic form (similar to the refined ClientScript.html logic) loads based on the selected offerType ('GOLD', 'BTC', etc.). Form fields must match the database schema / Google Sheet columns for that type. Input validation (required fields, data types) client-side and server-side.
+Admin Approval: Submitted offers enter 'Pending Approval' status. GECAN Admins review the offer details for clarity, plausibility, and compliance. Admins can approve (sets status to 'Active'), reject, or request clarification.
+Seller View: Sellers can view/manage their submitted offers (view details, potentially edit before approval or if inactive, request archival).
+Display: Active offers become potentially visible (in summarized/anonymized form) in search results for relevant, vetted Buyers.
+Buyer Enquiry Management:
+Submission: Vetted Buyers access "Create New Enquiry". Dynamic form based on enquiryType. Fields capture specific requirements. Validation applied. Enquiries enter 'Submitted' or 'Pending Review'.
+Admin Review: Admins review enquiries for clarity and legitimacy. Approve to 'Active' status.
+Buyer View: Buyers manage their enquiries.
+Display: Active enquiries become potentially visible to relevant, vetted Sellers.
+Search & Discovery:
+Central search interface for Vetted Members.
+Filter by offerType/enquiryType, status, potentially location, quantity ranges, keywords.
+Display results in a clean, sortable table/card view. Show limited, non-identifying details initially (e.g., Offer Type, Quantity Range, Location Region, Status, GECAN Offer ID). Full details only revealed after GECAN facilitates a match/introduction.
+Matching Engine (v1.0 - Admin Facilitated):
+Internal: GECAN Admins use enhanced search/filtering tools to identify potential matches between Active Offers and Active Enquiries based on key criteria (Commodity Type, Quantity, Location, Incoterm, Price/Rate expectations, Status etc.).
+Introduction Workflow: Admin initiates an introduction process (logs in Matches table). This could trigger notifications (future) or simply allow the Admin to securely share contact details/full offer/enquiry details between the matched parties after confirming mutual interest. v1.0 does not require automated matching; focus on enabling Admin search and tracking facilitated matches.
+Archiving:
+Automated process (e.g., nightly batch job or triggered check) to set status to 'Expired' for offers past their expiryDate.
+Manual option for Admins (and potentially Sellers for their own offers) to set status to 'Archived' or 'Invalid'.
+Archived/Expired offers are excluded from default searches but potentially viewable via specific filters or in historical records for Admins.
+UNIQUE VALUE PROPOSITIONS (UVPs):
+GECAN Toolkits (Implement at least 5-7 core ones for v1.0, design for expansion):
+[CORE] Document Template Library: Secure access for Vetted Members to view/download standardized GECAN legal document templates (NCNDA, IMFPA, SPA, LOI, ICPO shells based on commodity type from 00_GECAN_TEMPLATES references).
+[CORE] Unit Converter: Convert between common commodity units (e.g., Kg <> MT <> Oz for Gold; BBL <> MT <> Gallons <> Liters for Petroleum).
+[CORE] Currency Converter: Real-time or near-real-time conversion between major currencies (USD, EUR, GBP, AED, CHF, etc.) using a reliable API.
+Incoterm Explainer: Interactive guide explaining common Incoterms (CIF, FOB, EXW, etc.) used in the relevant commodity trades.
+Pricing Calculator (Simple): Calculate estimated final price based on index (e.g., LBMA Spot, Platts), discount/premium input.
+Offer Validity Tracker: Simple tool/dashboard view for users to see expiry dates of their active offers/enquiries.
+Time Zone Converter: Tool to coordinate calls/meetings across global locations.
+(Future v1.x/v2.0 Toolkits): Logistics Cost Estimator (Basic), Risk Checklist, Compliance Check Helper, Secure Messaging, Commission Calculator, Basic Contract Clause Builder, Market News Aggregator.
+[CORE] Legal Document Customization (v1.0 - Basic):
+Allow GECAN Admins to generate specific documents (e.g., NCNDA, IMFPA) pre-filled with details of matched parties after an introduction is agreed upon. Output as a downloadable/shareable document (e.g., PDF generated server-side). Leverage the template structures. No complex clause editing by end-users in v1.0.
+Community Hub (v1.0 - Placeholder/Basic):
+Design space for future features like secure forums, member directories (highly controlled visibility), and GECAN announcements. v1.0 might just include the structure and an Announcement section managed by Admins.
+Knowledge Hub (v1.0 - Basic):
+Admin-managed section to publish market insights, best practice guides (based on 05_RESOURCES_KNOWLEDGE_BASE), platform tutorials, FAQs, and glossaries.
+DASHBOARDS (Separate views for GECAN Admins):
+Operational Dashboard:
+Users pending verification.
+Offers/Enquiries pending approval.
+Recently submitted offers/enquiries.
+Key platform metrics (Total Users, Active Offers, Active Enquiries).
+Market Overview Dashboard:
+High-Demand Offers: List offers (by ID/Type) receiving significant interest or marked manually by Admins.
+Slow Response Offers: Flag offers/enquiries where matched parties (based on Matches table status) haven't progressed or responded in a timely manner (requires tracking interaction timestamps - future enhancement, v1.0 might be manual flagging).
+Top Rated Sellers/Offers (by Category): Display Sellers/Offers marked with high verificationLevel or positive internal notes, filterable by commodity type. (Relies on Admin assessment initially).
+LEGAL & COMPLIANCE:
+Disclaimer: Prominently display a clear, concise, legally reviewed disclaimer on relevant pages (e.g., footer, offer/enquiry pages):
+"Disclaimer: Information presented on the GECAN platform is for informational and networking purposes only amongst vetted members. GECAN facilitates connections but does not participate in, nor is it party to, any final transaction. Content herein should not be construed as financial advice, investment advice, or a solicitation for any transaction. Members are solely responsible for conducting their own thorough due diligence, seeking independent legal and financial counsel, and ensuring compliance with all applicable laws and regulations before entering into any agreement. GECAN makes no representations or warranties regarding the accuracy, completeness, or reliability of information provided by members or the outcome of any potential transaction. Use of this platform constitutes acceptance of GECAN's full Terms of Service."
+Terms of Service & Privacy Policy: Include links to comprehensive ToS and Privacy Policy pages (content to be provided separately).
+ARCHITECTURE & SCALABILITY:
+API First: Design the backend with clear, well-documented APIs that the frontend consumes.
+Component-Based Frontend: Structure the React/Next.js code using reusable components.
+Separation of Concerns: Keep business logic, data access, and presentation layers distinct.
+Configuration: Use environment variables for sensitive information (API keys, database credentials, JWT secrets) compatible with Replit Secrets.
+Asynchronous Operations: Handle long-running tasks (like complex matching - future, document generation) asynchronously if needed.
+Database Indexing: Ensure key fields used for searching and filtering (e.g., offerType, status, userId, offerId) are properly indexed in the database.
+IMPLEMENTATION REQUEST:
+Generate the project structure (folders for frontend components, backend routes/controllers/models, services, utils).
+Provide commented code for core functionalities (Auth, Offer/Enquiry CRUD shells, Search API endpoint shell, User model, Offer model).
+Implement the database schema based on the Data Model section using chosen DB syntax (e.g., SQL DDL for PostgreSQL, Mongoose schemas for MongoDB).
+Implement basic User Authentication (Registration, Login, JWT/Session handling).
+Build the core UI layout (DashboardUI.html structure implemented in React/Next.js components).
+Implement the dynamic form generation logic for at least two commodity types (e.g., GOLD and BTC) on the frontend to demonstrate the pattern, referencing the field requirements.
+Implement the backend API endpoints needed to support the chosen two commodity forms (Create, GetById for Edit).
+Implement the backend searchOffers API endpoint and the client-side logic to call it and display results.
+Include placeholder components/sections for Toolkits, Hubs, and Dashboards.
+Provide clear instructions on how to set up environment variables/secrets in Replit.
+Suggest basic testing strategies or libraries.
+EXCLUSIONS FOR V1.0:
+Direct Smart Contract integration/deployment.
+Real-time notifications (use polling or manual refresh initially).
+Complex automated matching algorithms (Admin-facilitated).
+Advanced analytics and reporting dashboards.
+Direct file storage within the app (use links or integrate with dedicated storage later).
+Full implementation of all 15 toolkits (focus on core ones).
+End-user contract clause editing.
